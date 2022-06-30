@@ -1,0 +1,56 @@
+
+.return-arrow {
+	font-size: 2.5rem;
+}
+
+.note-sample {
+	width: 30%;
+}
+
+.task-container {
+	margin: auto;
+}
+
+.task-form-container {
+	border-radius: 20px;
+	width: 300px;
+}
+
+.description-input {
+	height: 150px;
+	max-height: 300px;
+}
+
+.card {
+	width: 30%;
+}
+
+.card-body {
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.date {
+	bottom: 0;
+}
+
+i {
+	color: black;
+	font-size: 50px;
+}
+
+.form-footer .btn {
+	display: flex;
+	font-size: 1rem;
+	justify-content: center;
+	text-align: center;
+	width: 40%;
+}
+
+.form-footer .btn i {
+	display: none;
+	font-size: 1.5rem;
+}
+
+@import "./media-queries.component.scss"
+

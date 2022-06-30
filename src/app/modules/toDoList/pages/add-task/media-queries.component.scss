@@ -1,0 +1,39 @@
+@media only screen and (max-width: 1230px) {
+}
+
+@media only screen and (max-width: 1090px) {
+	.card {
+		display: none;
+	}
+
+	.task-form-container {
+		margin-top: 40px;
+	}
+
+	.sub-header {
+		margin-top: 30px;
+	}  
+}
+
+@media only screen and (max-width: 550px) {
+	.sub-header {
+		justify-content: center;
+	}
+}
+
+@media only screen and (max-width: 260px) {
+	.title-container h2 {
+		font-size: 14px;
+	}
+
+	.title-container h3 {
+		font-size: 10px;
+	}
+}
+
+@media only screen and (max-width: 209px) {
+	.title-container {
+		background: #e5b835;
+		padding: 6px;
+	}
+}

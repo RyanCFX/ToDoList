@@ -1,0 +1,63 @@
+///////////////////////
+// TASKS//////////////
+////////////////////////
+
+.card {
+	animation: fadeInUp;
+	animation-duration: 1.5s;
+	position: relative;
+	transition: .5s;
+	width: 100%;
+}
+
+.sub-card {
+	border-radius: 20px;
+	box-shadow: rgba(99, 99, 99, .2) 0 2px 8px 0;
+	height: 16rem;
+	z-index: 3000;
+}
+
+.card-body h4 {
+	max-height: 30px;
+	overflow: hidden;
+}
+
+.card-body .description-container {
+	max-height: 130px;
+	overflow: hidden;
+	width: 100%;
+}
+
+.card-footer {
+	bottom: 0;
+	display: inline-flex;
+	position: absolute;
+	right: 0;
+	width: 100%;
+}
+
+.config-button {
+	align-items: center;
+	color: transparent;
+	display: flex;
+	height: 20px;
+	justify-content: center;
+	overflow: hidden;
+	padding: 0;
+	text-decoration: none;
+	transition: .5s;
+	width: 20px;
+}
+
+.important-mark {
+	border-radius: 20px;
+	height: 100px;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100px;
+}
+
+.date {
+	bottom: 0;
+}

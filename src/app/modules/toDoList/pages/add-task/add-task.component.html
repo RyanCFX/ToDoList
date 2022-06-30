@@ -1,0 +1,118 @@
+<div class="main-container">
+  <header class="w-100 d-flex flex-column align-items-center">
+    <div class="title-container">
+      <h2>To Do List</h2>
+    </div>
+    <div class="sub-header">
+      <div class="d-flex gap-3 align-items-center">
+        <div class="title-container">
+          <h3>Agregar tarea</h3>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="hr bg-dark"></div>
+  <section>
+    <i
+      class="fa-solid fa-arrow-left-long text-dark pointer return-arrow"
+      (click)="goToMainPage()"
+    ></i>
+    <div
+      class="w-75 d-flex justify-content-around align-items-center task-container"
+    >
+      <div class="card border-0 col-4 mx-4 p-2 bg-transparent">
+        <div
+          class="important-mark bg-primary"
+          *ngIf="taskFormValues.isImportant"
+        ></div>
+        <div class="w-100 card sub-card border-0">
+          <div
+            class="card-header border-0 d-flex justify-content-end bg-transparent gap-2 mt-1 pb-0 disabled"
+          >
+            <button
+              class="config-button border-0 rounded-pill bg-success"
+            ></button>
+            <button
+              class="config-button border-0 rounded-pill bg-primary"
+            ></button>
+            <button
+              class="config-button border-0 rounded-pill bg-danger"
+            ></button>
+          </div>
+          <div class="card-body m-0">
+            <h4 class="card-title fw-bold">{{ taskFormValues.title }}</h4>
+            <hr class="my-2" />
+            <div class="description-container">
+              <p class="card-text">{{ taskFormValues.description }}</p>
+            </div>
+            <div
+              class="d-flex justify-content-end border-0 card-footer bg-transparent"
+            >
+              <p class="card-text date">{{ taskFormValues.creationDate }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="task-form-container bg-light p-4">
+        <div class="mb-3">
+          <label for="title-input" class="form-label">Titulo</label>
+          <input
+            type="text"
+            class="form-control title-input"
+            id="title-input"
+            maxlength="30"
+            [(ngModel)]="taskFormValues.title"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="description-input" class="form-label">Descripcion</label>
+          <textarea
+            class="form-control description-input"
+            id="description-input"
+            cols="30"
+            rows="10"
+            [(ngModel)]="taskFormValues.description"
+          ></textarea>
+        </div>
+        <div class="mb-3 form-check">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            id="isImportantCheck"
+            (click)="changeImportance()"
+          />
+          <label
+            class="form-check-label isImportantCheck"
+            for="isImportantCheck"
+            >Marcar como importante</label
+          >
+        </div>
+        <div class="form-footer d-flex justify-content-around">
+          <button
+            type="submit"
+            class="btn btn-dark rounded-pill"
+            (click)="goToMainPage()"
+          >
+            <span>Cancelar</span>
+          </button>
+          <button
+            type="submit"
+            class="btn btn-dark rounded-pill"
+            (click)="addTask()"
+            *ngIf="!showBtnUpdate"
+          >
+            <span>Agregar</span>
+          </button>
+          <button
+            type="submit"
+            class="btn btn-dark rounded-pill"
+            (click)="updateTask()"
+            *ngIf="showBtnUpdate"
+          >
+            <span>Modificar</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

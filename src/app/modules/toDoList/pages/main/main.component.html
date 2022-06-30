@@ -1,0 +1,138 @@
+<div class="main-container">
+  <header class="w-100 d-flex flex-column align-items-center">
+    <div class="title-container">
+      <h2>To Do List</h2>
+    </div>
+    <div class="sub-header">
+      <div class="d-flex gap-3 align-items-center">
+        <div
+          class="d-flex gap-3 align-items-center pointer show-nav-container"
+          (click)="showNav()"
+        >
+          <div class="title-container">
+            <h3>Tareas</h3>
+          </div>
+          <i
+            class="fa-solid fa-arrow-right-long fs-1 fs-4"
+            [ngClass]="{
+              'rotate-arrow': isShowingMenu,
+              'restore-arrow': !isShowingMenu
+            }"
+          ></i>
+        </div>
+        <div
+          class="bg-dark nav-bar"
+          [ngClass]="{
+            'no-show-nav ': !isShowingMenu,
+            'show-nav': isShowingMenu
+          }"
+        >
+          <button
+            class="btn btn-dark rounded-pill rounded-end btn_display-all-tasks"
+            (click)="showAllTasksPage()"
+          >
+            Todas
+          </button>
+          <button
+            class="btn btn-dark rounded-0 btn_display-complete-tasks"
+            (click)="showCompleteTasksPage()"
+          >
+            Completadas
+          </button>
+          <button
+            class="btn btn-dark rounded-0 rounded-pill rounded-start btn_display-uncomplete-tasks"
+            (click)="showUncompleteTasksPage()"
+          >
+            Incompletas
+          </button>
+
+          <button class="btn btn-dark btn-toggle-menu" (click)="showNav()">
+            <i class="fa-solid fa-arrow-up-long fs-1 fs-4"></i>
+          </button>
+        </div>
+      </div>
+      <div>
+        <button
+          class="btn btn-primary rounded-pill btn-agregar"
+          (click)="goToAddTaskPage()"
+        >
+          <span>Agregar</span>
+          <i class="fa-solid fa-plus text-dark"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+  <div class="hr bg-dark"></div>
+</div>
+
+<section class="w-100">
+  <h1
+    *ngIf="!tasksListToDisplay.length"
+    class="no-tasks text-center opacity-50 text-dark"
+  >
+    NO EXISTEN TAREAS
+  </h1>
+
+  <div class="cards-container">
+    <div
+      class="border-0 mx-4 p-2 bg-transparent card"
+      *ngFor="let task of tasksListToDisplay"
+      [ngClass]="{
+        'extend-task':
+          taskIdToExtend == task.id && task.description?.length > 400
+      }"
+    >
+      <div class="important-mark bg-primary" *ngIf="task.isImportant"></div>
+      <div
+        class="w-100 card sub-card border-0"
+        [ngClass]="{ 'bg-success': task.isCompleted }"
+      >
+        <div
+          class="card-header border-0 d-flex justify-content-end bg-transparent gap-2 mt-1 pb-0"
+        >
+          <button
+            class="btn btn-success border-0 rounded-pill config-button"
+            [ngClass]="{ 'btn-light completed-button': task.isCompleted }"
+            (click)="markTaskAsComplete(task.id)"
+          >
+            Completado
+          </button>
+          <button
+            class="btn btn-primary border-0 rounded-pill config-button"
+            [ngClass]="{ disabled: task.isCompleted }"
+            (click)="goToUpdateTaskPage(task.id)"
+          >
+            Modificar
+          </button>
+          <button
+            class="btn btn-danger border-0 rounded-pill config-button"
+            (click)="deleteTask(task.id)"
+          >
+            Eliminar
+          </button>
+        </div>
+        <div class="card-body m-0">
+          <h4 class="card-title fw-bold">{{ task.title }}</h4>
+          <hr class="my-2" />
+          <div class="description-container">
+            <p class="card-text">{{ task.description }}</p>
+          </div>
+          <div
+            class="d-flex justify-content-end bg-transparent border-0 card-footer"
+          >
+            <i
+              class="fa-solid fa-arrow-right-long fs-4 pointer extend-arrow"
+              (click)="extendTask(task.id)"
+              [ngClass]="{
+                'rotate-arrow': taskIdToExtend == task.id,
+                'restore-arrow': taskIdToExtend != task.id
+              }"
+              *ngIf="task.description?.length > 400"
+            ></i>
+            <p class="card-text date">{{ task.creationDate }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

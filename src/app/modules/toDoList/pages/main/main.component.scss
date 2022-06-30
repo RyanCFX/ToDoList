@@ -1,0 +1,83 @@
+.no-show-nav {
+	transform: translate(-200%);
+	transition: 1s;
+}
+
+.show-nav {
+	transform: translate(0%);
+	transition: 1s;
+}
+
+.rotate-arrow {
+	transform: rotate(180deg);
+	transition: 1s;
+}
+
+.restore-arrow {
+	transform: rotate(0deg);
+	transition: 1s;
+}
+
+.nav-bar {
+	border-radius: 50px;
+	display: inline-flex;
+	width: auto;
+}
+.nav-bar .btn {
+	display: inline-flex;
+	font-size: 1rem;
+	width: auto;
+}
+
+.btn_display-all-tasks {
+	border-right: 1px solid white;
+}
+
+.btn_display-uncomplete-tasks {
+	border-left: 1px solid white;
+}
+.nav-bar .btn-toggle-menu {
+	display: none;
+}
+
+.btn-agregar i {
+	display: none;
+}
+p {
+	font-size: 15px;
+}
+
+.card-footer i {
+	left: 1rem;
+	position: absolute;
+}
+
+.cards-container {
+	display: grid;
+	grid-template-columns: repeat(3, 4fr);
+	margin: auto;
+	width: 80%;
+
+	gap: 30px;
+}
+
+.card {
+	grid-column: auto;
+}
+
+.config-button:hover {
+	color: white;
+	padding: 0 8px;
+	width: 120px;
+}
+
+.completed-button:hover {
+	color: black;
+}
+
+.extend-task {
+	grid-column: 1/-1;
+}
+
+
+@import "./media-queries.component.scss";
