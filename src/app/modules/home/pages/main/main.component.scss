@@ -40,6 +40,14 @@
 	width: 100%;
 }
 
+.doc-container input{
+	text-overflow: ellipsis;
+}
+
+.doc-container span{
+	user-select: none;
+}
+
 .btn_start-app {
 	font-size: 1rem;
 }
